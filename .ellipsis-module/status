@@ -1,11 +1,11 @@
 mkdir -p $HOME/.cache/ellipsis/modules/vim
 vim -c 'call vice#ListAddonsIntoBuffer()' -c 'normal ggdd' -c 'w! ~/.cache/ellipsis/modules/vim/addons' -c > /dev/null 2>&1
 
-update $HOME/.vim/addons/vice
-update $HOME/.vim/addons/vim-addon-manager
+status $HOME/.vim/addons/vice
+status $HOME/.vim/addons/vim-addon-manager
 
 for addon in `cat $HOME/.cache/ellipsis/modules/vim/addons`; do
     if [ -e "$addon" ]; then
-        update $addon
+        status $addon
     fi
 done
