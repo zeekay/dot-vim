@@ -1,10 +1,9 @@
-mkdir -p $HOME/.cache/ellipsis/modules/vim
-vim -c 'call vice#ListAddonsIntoBuffer()' -c 'normal ggdd' -c 'w! ~/.cache/ellipsis/modules/vim/addons' -c > /dev/null 2>&1
+. $module_path/.ellipsis-module/list-addons
 
 pull $HOME/.vim/addons/vice
 pull $HOME/.vim/addons/vim-addon-manager
 
-for addon in `cat $HOME/.cache/ellipsis/modules/vim/addons`; do
+for addon in `cat $module_path/tmp/addons-list`; do
     if [ -e "$addon" ]; then
         pull $addon
     fi
