@@ -1,2 +1,2 @@
 mkdir -p $module_path/tmp
-vim -c 'call vice#ListAddonsIntoBuffer()' -c 'normal ggdd' -c "w! $module_path/tmp/addons-list' -c > /dev/null 2>&1
+vim -c 'call vice#ListAddonsIntoBuffer()' -c 'normal ggdd' -c 'w! '"$module_path/tmp/addons-list" -c q > /dev/null 2>&1

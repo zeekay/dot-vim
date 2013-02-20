@@ -1,7 +1,7 @@
-. $module_path/.ellipsis-module/list-addons
-
 status $HOME/.vim/addons/vice
 status $HOME/.vim/addons/vim-addon-manager
+
+. $module_path/.ellipsis-module/list-addons
 
 for addon in `cat $module_path/tmp/addons-list`; do
     if [ -e "$addon" ]; then
