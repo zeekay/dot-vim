@@ -20,8 +20,8 @@ mod.install() {
     done
 
     # install dependencies
-    git.cone $GIT_ROOT/zeekay/vice $VIM_ADDONS/vice
-    git.cone $GIT_ROOT/MarcWeber/vim-addon-manager $VIM_ADDONS/vim-addon-manager
+    git.clone $GIT_ROOT/zeekay/vice $VIM_ADDONS/vice
+    git.clone $GIT_ROOT/MarcWeber/vim-addon-manager $VIM_ADDONS/vim-addon-manager
 
     # link files in place
     for file in $files; do
