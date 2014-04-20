@@ -5,7 +5,7 @@ VIM_ADDONS=$HOME/.vim/addons
 
 mod.install() {
     files=(vimrc vimgitrc vimpagerrc)
-    folders=(vim/addons vim/tmp/backup vim/tmp/undo)
+    folders=(addons tmp/backup tmp/undo)
 
     # backup existing vim file/folders
     ellipsis.backup ~/.vim
@@ -16,7 +16,8 @@ mod.install() {
 
     # create folder structure
     for folder in $folders; do
-        mkdir -p ~/.$folder
+        echo "mkdir -p $HOME/.vim/$folder"
+        mkdir -p $HOME/.vim/$folder
     done
 
     # install dependencies
