@@ -31,10 +31,6 @@ mod.install() {
 }
 
 mod.pull() {
-    # update deps
-    git.pull $VIM_ADDONS/vice
-    git.pull $VIM_ADDONS/vim-addon-manager
-
     # update installed addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
@@ -44,10 +40,6 @@ mod.pull() {
 }
 
 mod.push() {
-    # update deps
-    git.push $VIM_ADDONS/vice
-    git.push $VIM_ADDONS/vim-addon-manager
-
     # update installed addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
@@ -57,10 +49,6 @@ mod.push() {
 }
 
 mod.status() {
-    # status of deps
-    git.status $VIM_ADDONS/vice
-    git.status $VIM_ADDONS/vim-addon-manager
-
     # status of addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
