@@ -1,5 +1,5 @@
 # dot-vim
-My [vim][vim] configuration. For use with [ellipsis][ellipsis].
+Default [vim][vim] dotfiles provided by [ellipsis][ellipsis] and my personal setup.
 
 ## Install
 Clone and symlink or install with [ellipsis][ellipsis]:
