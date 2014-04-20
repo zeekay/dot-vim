@@ -7,7 +7,11 @@ call vice#Initialize({
         \ 'github:zeekay/vice-colorful',
         \ 'github:zeekay/vice-git',
         \ 'github:zeekay/vice-standard-issue',
-    \ ]
+        \ 'github:mattn/webapi-vim',
+    \],
+    \ 'commands': {
+        \ 'Gist': ['github:mattn/gist-vim'],
+    \ }
 \ })
 
 " Don't remember session

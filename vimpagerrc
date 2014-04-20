@@ -5,7 +5,11 @@ call vice#Initialize({
     \ 'addons': [
         \ 'github:zeekay/vice-colorful',
         \ 'github:zeekay/vice-standard-issue',
-    \ ]
+        \ 'github:mattn/webapi-vim',
+    \ ],
+    \ 'commands': {
+        \ 'Gist': ['github:mattn/gist-vim'],
+    \ }
 \ })
 
 call vice#ForceActivateAddon('github:zeekay/AnsiEsc.vim')
