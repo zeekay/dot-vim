@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 GIT_ROOT=https://github.com
-VIM_VIM_ADDONS=~/.vim/addons
+VIM_ADDONS=$HOME/.vim/addons
 
 mod.install() {
     files=(vimrc vimgitrc vimpagerrc)
@@ -35,7 +35,7 @@ mod.pull() {
     git.pull $VIM_ADDONS/vim-addon-manager
 
     # update installed addons
-    for addon in $VIM_ADDONS/*; do
+    for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
             git.pull "$addon"
         fi
@@ -48,7 +48,7 @@ mod.push() {
     git.push $VIM_ADDONS/vim-addon-manager
 
     # update installed addons
-    for addon in $VIM_ADDONS/*; do
+    for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
             git.push "$addon"
         fi
@@ -61,7 +61,7 @@ mod.status() {
     git.status $VIM_ADDONS/vim-addon-manager
 
     # status of addons
-    for addon in $VIM_ADDONS/*; do
+    for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
             git.status "$addon"
         fi
