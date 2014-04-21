@@ -5,29 +5,20 @@ VIM_ADDONS=$HOME/.vim/addons
 
 mod.install() {
     files=(vimrc vimgitrc vimpagerrc)
-    folders=(addons tmp/backup tmp/undo)
 
     # backup existing vim file/folders
-    ellipsis.backup ~/.vim
+    ellipsis.backup $HOME/.vim
 
-    for file in $files; do
-        ellipsis.backup ~/.$file
-    done
+    # link files into place
+    ln -s $mod_path $HOME/.vim
 
-    # create folder structure
-    for folder in $folders; do
-        echo "mkdir -p $HOME/.vim/$folder"
-        mkdir -p $HOME/.vim/$folder
+    for file in ${files[*]}; do
+        ellipsis.link_file $HOME/.$file
     done
 
     # install dependencies
     git.clone $GIT_ROOT/zeekay/vice $VIM_ADDONS/vice
     git.clone $GIT_ROOT/MarcWeber/vim-addon-manager $VIM_ADDONS/vim-addon-manager
-
-    # link files in place
-    for file in $files; do
-        ln -s "$mod_path/$file" ~/.$file
-    done
 }
 
 mod.pull() {
