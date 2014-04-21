@@ -5,7 +5,7 @@ VIM_ADDONS=$HOME/.vim/addons
 mod.install() {
     files=(gvimrc vimrc vimgitrc vimpagerrc)
 
-    for file in ${files[*]}; do
+    for file in ${files[@]}; do
         ellipsis.link_file $mod_path/$file
     done
 
