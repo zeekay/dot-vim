@@ -1,24 +1,21 @@
 #!/usr/bin/env bash
 
-GIT_ROOT=https://github.com
 VIM_ADDONS=$HOME/.vim/addons
 
 mod.install() {
-    files=(vimrc vimgitrc vimpagerrc)
-
-    # backup existing vim file/folders
-    ellipsis.backup $HOME/.vim
-
-    # link files into place
-    ln -s $mod_path $HOME/.vim
+    files=(gvimrc vimrc vimgitrc vimpagerrc)
 
     for file in ${files[*]}; do
-        ellipsis.link_file $HOME/.$file
+        ellipsis.link_file $mod_path/$file
     done
 
+    # link module into ~/.vim
+    ellipsis.link_file $mod_path
+
     # install dependencies
-    git.clone $GIT_ROOT/zeekay/vice $VIM_ADDONS/vice
-    git.clone $GIT_ROOT/MarcWeber/vim-addon-manager $VIM_ADDONS/vim-addon-manager
+    cd $VIM_ADDONS
+    git.clone https://github.com/zeekay/vice
+    git.clone https://github.com/MarcWeber/vim-addon-manager
 }
 
 mod.pull() {
