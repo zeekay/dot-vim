@@ -10,7 +10,9 @@ mod.install() {
     done
 
     # link module into ~/.vim
-    ellipsis.link_file $mod_path
+    ellipsis.backup $HOME/.vim
+    ln -s $mod_path $HOME/.vim
+    # ellipsis.link_file $mod_path
 
     # install dependencies
     cd $VIM_ADDONS
