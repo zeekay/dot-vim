@@ -12,5 +12,5 @@ $ ellipsis install zeekay/dot-vim
 ```
 
 [ellipsis]: http://ellipsis.sh
-[vim]: http://www.vim.org
-[vice]: https://github.com/zeekay/vice
+[vim]:      http://www.vim.org
+[vice]:     https://github.com/zeekay/vice
