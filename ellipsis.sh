@@ -12,7 +12,6 @@ pkg.install() {
     # link module into ~/.vim
     ellipsis.backup $HOME/.vim
     ln -s $PKG_PATH $HOME/.vim
-    # ellipsis.link_file $PKG_PATH
 
     # install dependencies
     cd $VIM_ADDONS
