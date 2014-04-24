@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+#
+# zeekay/dot-vim
+# My vice-based vim configuration.
 
 VIM_ADDONS=$HOME/.vim/addons
 
