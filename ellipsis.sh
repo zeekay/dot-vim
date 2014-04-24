@@ -2,17 +2,17 @@
 
 VIM_ADDONS=$HOME/.vim/addons
 
-mod.install() {
+pkg.install() {
     files=(gvimrc vimrc vimgitrc vimpagerrc)
 
     for file in ${files[@]}; do
-        ellipsis.link_file $mod_path/$file
+        ellipsis.link_file $PKG_PATH/$file
     done
 
     # link module into ~/.vim
     ellipsis.backup $HOME/.vim
-    ln -s $mod_path $HOME/.vim
-    # ellipsis.link_file $mod_path
+    ln -s $PKG_PATH $HOME/.vim
+    # ellipsis.link_file $PKG_PATH
 
     # install dependencies
     cd $VIM_ADDONS
@@ -20,7 +20,7 @@ mod.install() {
     git.clone https://github.com/MarcWeber/vim-addon-manager
 }
 
-mod.pull() {
+pkg.pull() {
     # update installed addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
@@ -29,7 +29,7 @@ mod.pull() {
     done
 }
 
-mod.push() {
+pkg.push() {
     # update installed addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
@@ -38,7 +38,7 @@ mod.push() {
     done
 }
 
-mod.status() {
+pkg.status() {
     # status of addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
