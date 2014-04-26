@@ -23,6 +23,8 @@ pkg.install() {
 }
 
 pkg.pull() {
+    git.pull
+
     # update installed addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
@@ -33,6 +35,8 @@ pkg.pull() {
 }
 
 pkg.push() {
+    git.push
+
     # update installed addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
@@ -43,6 +47,8 @@ pkg.push() {
 }
 
 pkg.status() {
+    git.status
+
     # status of addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
