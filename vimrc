@@ -8,7 +8,6 @@ let options = {
         \ 'github:zeekay/vice-ctrlp',
         \ 'github:zeekay/vice-delimitmate',
         \ 'github:zeekay/vice-git',
-        \ 'github:zeekay/vice-nerdtree',
         \ 'github:zeekay/vice-polyglot',
         \ 'github:zeekay/vice-neocompletion',
         \ 'github:zeekay/vice-powerline',
@@ -21,6 +20,9 @@ let options = {
         \ 'github:terryma/vim-multiple-cursors',
         \ 'github:airblade/vim-gitgutter',
         \ 'github:godlygeek/tabular',
+        \ 'github:tpope/vim-vinegar',
+        \ 'github:Shougo/unite.vim',
+        \ 'github:Shougo/vimfiler.vim',
     \ ],
     \ 'commands': {
         \ 'Sum': ['github:zeekay/visSum.vim'],
@@ -111,3 +113,24 @@ let g:python_highlight_all = 1
 let g:gitgutter_enabled = 0
 
 nnoremap <leader>gg :GitGutterToggle<cr>
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_execute_file_list = {'_': 'vim'}
+let g:vimfiler_force_overwrite_statusline = 0
+let g:loaded_netrwPlugin = 1
+
+func! s:escaped(first, last) abort
+  let files = getline(a:first, a:last)
+  call filter(files, 'v:val !~# "^\" "')
+  call map(files, 'substitute(v:val, "[/*|@=]\\=\\%(\\t.*\\)\\=$", "", "")')
+  return join(map(files, 'fnamemodify(b:vimfiler.current_dir."/".v:val,":~:.")'), ' ')
+endf
+
+au FileType vimfiler nnoremap <buffer> u :silent VimFiler ..<cr>:pwd<cr>
+au FileType vimfiler nnoremap <buffer> J <c-d>
+au FileType vimfiler nnoremap <buffer> K <c-u>
+au FileType vimfiler nnoremap <buffer> o <Plug>(vimfiler_expand_tree)
+au FileType vimfiler nnoremap <buffer> O <Plug>(vimfiler_expand_tree_recursive)
+au FileType vimfiler noremap <buffer> . :<C-U> <C-R>=<SID>escaped(line('.'), line('.') - 1 + v:count1)<CR><Home>
+au FileType vimfiler xnoremap <buffer> . <Esc>: <C-R>=<SID>escaped(line("'<"), line("'>"))<CR><Home>
+au FileType vimfiler nmap <buffer> ! .!
+au FileType vimfiler xmap <buffer> ! .!

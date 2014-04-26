@@ -26,6 +26,7 @@ pkg.pull() {
     # update installed addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
+            cd $addon
             git.pull "$addon"
         fi
     done
@@ -35,6 +36,7 @@ pkg.push() {
     # update installed addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
+            cd $addon
             git.push "$addon"
         fi
     done
@@ -44,6 +46,7 @@ pkg.status() {
     # status of addons
     for addon in "$VIM_ADDONS/"*; do
         if [ -e "$addon" ]; then
+            cd $addon
             git.status "$addon"
         fi
     done
