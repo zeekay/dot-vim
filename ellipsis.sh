@@ -3,8 +3,6 @@
 # zeekay/dot-vim
 # My vice-based vim configuration.
 
-VIM_ADDONS=$HOME/.vim/addons
-
 pkg.install() {
     files=(gvimrc vimrc vimgitrc vimpagerrc)
 
@@ -13,47 +11,36 @@ pkg.install() {
     done
 
     # link module into ~/.vim
-    ellipsis.backup $HOME/.vim
-    ln -s $PKG_PATH $HOME/.vim
+    ellipsis.backup ~/.vim
+    ln -s $PKG_PATH ~/.vim
 
     # install dependencies
-    cd $VIM_ADDONS
+    cd ~/.vim/addons
     git.clone https://github.com/zeekay/vice
     git.clone https://github.com/MarcWeber/vim-addon-manager
 }
 
-pkg.pull() {
-    git.pull
+helper() {
+    # run command for ourselves
+    $1
 
-    # update installed addons
-    for addon in "$VIM_ADDONS/"*; do
+    # run command for each addon
+    for addon in ~/.vim/addons/*; do
         if [ -e "$addon" ]; then
             cd $addon
-            git.pull "$addon"
+            $1 "$addon"
         fi
     done
+}
+
+pkg.pull() {
+    helper git.pull
 }
 
 pkg.push() {
-    git.push
-
-    # update installed addons
-    for addon in "$VIM_ADDONS/"*; do
-        if [ -e "$addon" ]; then
-            cd $addon
-            git.push "$addon"
-        fi
-    done
+    helper git.push
 }
 
 pkg.status() {
-    git.status
-
-    # status of addons
-    for addon in "$VIM_ADDONS/"*; do
-        if [ -e "$addon" ]; then
-            cd $addon
-            git.status "$addon"
-        fi
-    done
+    helper git.status
 }
