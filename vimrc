@@ -23,6 +23,7 @@ let options = {
         \ 'github:tpope/vim-vinegar',
         \ 'github:Shougo/unite.vim',
         \ 'github:Shougo/vimfiler.vim',
+        \ 'github:zeekay/vice-nerdtree',
     \ ],
     \ 'commands': {
         \ 'Sum': ['github:zeekay/visSum.vim'],
