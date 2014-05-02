@@ -1,4 +1,4 @@
-# zeekay/dot-vim
+# zeekay/vim
 My vim dotfiles, compatible with [ellipsis][ellipsis].
 
 ## Features
@@ -8,7 +8,7 @@ Leverages my awesome vim framework, [vice][vice]. All the bells and whistles.
 Clone and symlink or install with [ellipsis][ellipsis]:
 
 ```
-$ ellipsis install zeekay/dot-vim
+$ ellipsis install zeekay/vim
 ```
 
 [ellipsis]: http://ellipsis.sh
