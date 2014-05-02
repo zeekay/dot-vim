@@ -26,10 +26,8 @@ helper() {
 
     # run command for each addon
     for addon in ~/.vim/addons/*; do
-        if [ -e $addon ]; then
-            cd $addon
-            $1 $addon
-        fi
+        cd $addon
+        $1 $addon
     done
 }
 
@@ -37,10 +35,18 @@ pkg.pull() {
     helper git.pull
 }
 
-pkg.push() {
-    helper git.push
-}
-
 pkg.status() {
     helper hooks.status
+}
+
+pkg.push() {
+    git.push
+
+    # git push only repos where we have push permission
+    for addon in ~/.vim/addons/*; do
+        if [ "$(cat $addon/.git/config | grep $ELLIPSIS_USER)" ]; then
+            cd $addon
+            git.push $addon
+        fi
+    done
 }
