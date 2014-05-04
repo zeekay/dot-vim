@@ -27,7 +27,7 @@ helper() {
     # run command for each addon
     for addon in ~/.vim/addons/*; do
         cd $addon
-        $1 $addon
+        $1 vim/$(basename $addon)
     done
 }
 
