@@ -83,7 +83,13 @@ endf
 au BufReadPost * call s:Escape()
 au VimEnter * call s:JumpToFirstDiff()
 
-color hybrid
-hi Normal ctermbg=235
+if $VIM_LIGHT_BG
+	set background=light
+	colorscheme solarized
+	hi Normal ctermbg=15
+else
+	color hybrid
+	hi Normal ctermbg=235
+endif
 
-" vim:set filetype=vim:
+" vim:set ft=vim:

@@ -52,13 +52,17 @@ else
     " set nolazyredraw
     " set ttyfast
 
-    " color Tomorrow-Night-Eighties
-    color hybrid
-    hi Normal ctermbg=235 ctermfg=254
-
-    let g:indent_guides_auto_colors = 0
-    hi IndentGuidesOdd  ctermbg=236
-    hi IndentGuidesEven ctermbg=236
+    if $VIM_LIGHT_BG
+	set background=light
+	colorscheme solarized
+	hi Normal ctermbg=15
+    else
+       color hybrid
+       hi Normal ctermbg=235 ctermfg=254
+       let g:indent_guides_auto_colors = 0
+       hi IndentGuidesOdd  ctermbg=236
+       hi IndentGuidesEven ctermbg=236
+    endif
 endif
 
 hi link coffeeFunction Function
@@ -113,28 +117,16 @@ let g:gitgutter_enabled = 0
 
 nnoremap <leader>gg :GitGutterToggle<cr>
 
-" call vice#ForceActivateAddons([
-"     \ 'github:Shougo/unite.vim',
-"     \ 'github:Shougo/vimfiler.vim',
-" \ ])
-" let g:vimfiler_as_default_explorer = 1
-" let g:vimfiler_execute_file_list = {'_': 'vim'}
-" let g:vimfiler_force_overwrite_statusline = 0
-" let g:loaded_netrwPlugin = 1
-
-" func! s:escaped(first, last) abort
-"   let files = getline(a:first, a:last)
-"   call filter(files, 'v:val !~# "^\" "')
-"   call map(files, 'substitute(v:val, "[/*|@=]\\=\\%(\\t.*\\)\\=$", "", "")')
-"   return join(map(files, 'fnamemodify(b:vimfiler.current_dir."/".v:val,":~:.")'), ' ')
+" let g:ctermbg=230
+" function! IncCtermBg()
+"     let g:ctermbg+=1
+"     exe "hi Normal ctermbg=".g:ctermbg
 " endf
 
-" au FileType vimfiler nnoremap <buffer> u :silent VimFiler ..<cr>:pwd<cr>
-" au FileType vimfiler nnoremap <buffer> J <c-d>
-" au FileType vimfiler nnoremap <buffer> K <c-u>
-" au FileType vimfiler nnoremap <buffer> o <Plug>(vimfiler_expand_tree)
-" au FileType vimfiler nnoremap <buffer> O <Plug>(vimfiler_expand_tree_recursive)
-" au FileType vimfiler noremap <buffer> . :<C-U> <C-R>=<SID>escaped(line('.'), line('.') - 1 + v:count1)<CR><Home>
-" au FileType vimfiler xnoremap <buffer> . <Esc>: <C-R>=<SID>escaped(line("'<"), line("'>"))<CR><Home>
-" au FileType vimfiler nmap <buffer> ! .!
-" au FileType vimfiler xmap <buffer> ! .!
+" function! DecCtermBg()
+"     let g:ctermbg-=1
+"     exe "hi Normal ctermbg=".g:ctermbg
+" endf
+
+" nnoremap <F3> :call DecCtermBg()<cr>
+" nnoremap <F4> :call IncCtermBg()<cr>
