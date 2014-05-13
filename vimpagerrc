@@ -23,8 +23,6 @@ set nohls
 set nolazyredraw
 set ttyfast
 
-nnoremap ; :
-vnoremap ; :
 inoremap <Esc> <Esc>`^
 map <leader>q :q<cr>
 nnoremap J <c-d>

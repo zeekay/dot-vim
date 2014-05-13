@@ -21,9 +21,6 @@ set ttyfast
 set nolazyredraw
 set laststatus=0
 
-nnoremap ; :
-vnoremap ; :
-
 " Prevent cursor from moving when leavng insert mode
 inoremap <Esc> <Esc>`^
 
