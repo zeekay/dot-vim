@@ -48,14 +48,13 @@ if has('gui_running')
     " color minimal
     " hi Normal guifg=#fcffe0 guibg=#3b3933
 else
-    set lazyredraw
-    " set nolazyredraw
-    " set ttyfast
+    set nolazyredraw
+    set ttyfast
 
     if $VIM_LIGHT_BG
-	set background=light
-	colorscheme solarized
-	hi Normal ctermbg=15
+        set background=light
+        colorscheme solarized
+        hi Normal ctermbg=15
     else
        color hybrid
        hi Normal ctermbg=235 ctermfg=254
@@ -73,10 +72,6 @@ hi link coffeeObjAssign Statement
 cabbrev ack <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Ack' : 'ack')<CR>
 cabbrev shell <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShell' : 'shell')<CR>
 cabbrev shelli <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShellInteractive' : 'shell')<CR>
-
-" mappings
-nnoremap ; :
-vnoremap ; :
 
 " prevent cursor from moving when leaving insert mode
 inoremap <Esc> <Esc>`^
@@ -108,9 +103,6 @@ inoremap <F1> :set number!<cr>
 
 nnoremap <F2> :ColorNext<cr>
 inoremap <F2> :ColorNext<cr>
-
-nnoremap <F3> :ColorPrev<cr>
-inoremap <F3> :ColorPrev<cr>
 
 let g:python_highlight_all = 1
 let g:gitgutter_enabled = 0
