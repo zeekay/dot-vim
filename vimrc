@@ -122,3 +122,7 @@ nnoremap <leader>gg :GitGutterToggle<cr>
 
 " nnoremap <F3> :call DecCtermBg()<cr>
 " nnoremap <F4> :call IncCtermBg()<cr>
+cabbrev sudowrite Sudowrite
+cabbrev sudoedit Sudoedit
+cabbrev sw Sudowrite
+cabbrev se Sudoedit

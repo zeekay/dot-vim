@@ -26,8 +26,11 @@ helper() {
 
     # run command for each addon
     for addon in ~/.vim/addons/*; do
-        cd $addon
-        $1 vim/$(basename $addon)
+        # git status/push only repos which are ours
+        if [ $1 = "git.pull" ] || [ "$(cat $addon/.git/config | grep url | grep $ELLIPSIS_USER)" ]; then
+            cd $addon
+            $1 vim/$(basename $addon)
+        fi
     done
 }
 
@@ -40,13 +43,5 @@ pkg.status() {
 }
 
 pkg.push() {
-    git.push
-
-    # git push only repos where we have push permission
-    for addon in ~/.vim/addons/*; do
-        if [ "$(cat $addon/.git/config | grep $ELLIPSIS_USER)" ]; then
-            cd $addon
-            git.push $addon
-        fi
-    done
+    helper git.push
 }
