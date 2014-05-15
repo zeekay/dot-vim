@@ -39,8 +39,28 @@ endif
 let &rtp.=','.expand('~/.vim/addons/vice')
 call vice#Initialize(options)
 
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
+" Prevent cursor from moving when leaving insert mode.
+inoremap <Esc> <Esc>`^
+
+" Mappings.
+nnoremap <leader>gg :GitGutterToggle<cr>
+nnoremap <leader>m :set mouse=a<cr>
+nnoremap <leader>q :q<cr>
+nnoremap Q ZQ
+nnoremap J <c-d>
+nnoremap K <c-u>
+vnoremap J <c-d>
+vnoremap K <c-u>
+inoremap <c-u> <c-o>dd
+
+" Abbreviations
+cabbrev ack <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Ack' : 'ack')<CR>
+cabbrev shell <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShell' : 'shell')<CR>
+cabbrev shelli <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShellInteractive' : 'shelli')<CR>
+cabbrev sudowrite Sudowrite
+cabbrev sudoedit Sudoedit
+cabbrev sw Sudowrite
+cabbrev se Sudoedit
 
 if has('gui_running')
     color base16-mocha
@@ -68,61 +88,7 @@ hi link coffeeFunction Function
 hi link coffeeMethod Function
 hi link coffeeObjAssign Statement
 
-" abbreviations
-cabbrev ack <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Ack' : 'ack')<CR>
-cabbrev shell <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShell' : 'shell')<CR>
-cabbrev shelli <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShellInteractive' : 'shell')<CR>
-
-" prevent cursor from moving when leaving insert mode
-inoremap <Esc> <Esc>`^
-
-nnoremap <leader>q :q<cr>
-nnoremap Q ZQ
-nnoremap J <c-d>
-nnoremap K <c-u>
-vnoremap J <c-d>
-vnoremap K <c-u>
-inoremap <c-u> <c-o>dd
-
-cabbrev su SudoWrite
-cabbrev sudo SudoWrite
-
-" repeat across visual selection
-xnoremap . :norm.<cr>
-
-" macro across visual selection
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-function! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunction
-
-nnoremap <F1> :set number!<cr>
-inoremap <F1> :set number!<cr>
-
-nnoremap <F2> :ColorNext<cr>
-inoremap <F2> :ColorNext<cr>
-
 let g:python_highlight_all = 1
 let g:gitgutter_enabled = 0
-
-nnoremap <leader>gg :GitGutterToggle<cr>
-
-" let g:ctermbg=230
-" function! IncCtermBg()
-"     let g:ctermbg+=1
-"     exe "hi Normal ctermbg=".g:ctermbg
-" endf
-
-" function! DecCtermBg()
-"     let g:ctermbg-=1
-"     exe "hi Normal ctermbg=".g:ctermbg
-" endf
-
-" nnoremap <F3> :call DecCtermBg()<cr>
-" nnoremap <F4> :call IncCtermBg()<cr>
-cabbrev sudowrite Sudowrite
-cabbrev sudoedit Sudoedit
-cabbrev sw Sudowrite
-cabbrev se Sudoedit
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
