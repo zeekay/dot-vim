@@ -52,6 +52,7 @@ nnoremap K <c-u>
 vnoremap J <c-d>
 vnoremap K <c-u>
 inoremap <c-u> <c-o>dd
+nnoremap ; :
 
 " Abbreviations
 cabbrev ack <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Ack' : 'ack')<CR>
