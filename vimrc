@@ -77,6 +77,7 @@ else
         set background=light
         colorscheme solarized
         hi Normal ctermbg=15
+        let g:lightline['colorscheme'] = 'solarized'
     else
        color hybrid
        hi Normal ctermbg=235 ctermfg=254
