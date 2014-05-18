@@ -31,6 +31,7 @@ vnoremap J <c-d>
 vnoremap K <c-u>
 nnoremap Q ZQ
 inoremap <c-u> <c-o>dd
+nnoremap ; :
 
 func! s:JumpToFirstDiff()
     if &ft == 'diff'

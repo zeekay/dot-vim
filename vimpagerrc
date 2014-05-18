@@ -56,6 +56,7 @@ map z z
 vmap G G
 map n n
 map N N
+nnoremap ; :
 
 func! s:Escape()
     " Use AnsiEsc for highlighting if ft is not detected.
