@@ -4,8 +4,8 @@
 #
 # My vice-based vim configuration.
 
-pkg.install() {
-    files=(gvimrc vimrc vimgitrc vimpagerrc)
+pkg.link() {
+    files=(gvimrc vimrc vimgitrc vimpagerrc xvimrc)
 
     for file in ${files[@]}; do
         fs.link_file $file
@@ -13,7 +13,9 @@ pkg.install() {
 
     # link module into ~/.vim
     fs.link_file $PKG_PATH
+}
 
+pkg.install() {
     # install dependencies
     cd ~/.vim/addons
     git.clone https://github.com/zeekay/vice
