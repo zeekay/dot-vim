@@ -18,14 +18,14 @@ let options = {
         \ 'github:zeekay/vice-startify',
         \ 'github:zeekay/vice-lightline',
         \ 'github:zeekay/vim-cake',
-        \ 'github:nathanaelkane/vim-indent-guides',
         \ 'github:terryma/vim-multiple-cursors',
-        \ 'github:airblade/vim-gitgutter',
-        \ 'github:godlygeek/tabular',
         \ 'github:tpope/vim-vinegar',
     \ ],
     \ 'commands': {
-        \ 'Sum': ['github:zeekay/visSum.vim'],
+        \ 'GitGutterToggle':    ['github:airblade/vim-gitgutter'],
+        \ 'IndentGuidesToggle': ['github:nathanaelkane/vim-indent-guides'],
+        \ 'Sum':                ['github:zeekay/visSum.vim'],
+        \ 'Tabularize':         ['github:godlygeek/tabular'],
     \ },
     \ 'standard_issue': {
         \ 'transparency': 0
@@ -45,6 +45,7 @@ inoremap <Esc> <Esc>`^
 
 " Mappings.
 nnoremap <leader>gg :GitGutterToggle<cr>
+nnoremap <leader>ig :IndentGuidesToggle<cr>
 nnoremap <leader>m :set mouse=a<cr>
 nnoremap <leader>q :q<cr>
 nnoremap Q ZQ
@@ -67,8 +68,6 @@ cabbrev se Sudoedit
 if has('gui_running')
     color base16-mocha
     set background=dark
-    " color minimal
-    " hi Normal guifg=#fcffe0 guibg=#3b3933
 else
     set nolazyredraw
     set ttyfast
