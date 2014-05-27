@@ -1,10 +1,13 @@
+[core]
+    editor = git-editor
+
 [merge]
-    tool       = vim
+    tool = vim
 
 [mergetool]
     keepBackup = false
 
 [mergetool "vim"]
-    cmd        = vim -u ~/.vimgitrc "+Gdiff" $MERGED -c '"call vice#git#merge()"'
+    cmd = vim -u ~/.vimgitrc "+Gdiff" $MERGED -c '"call vice#git#merge()"'
 
 # vim: ft=gitconfig
