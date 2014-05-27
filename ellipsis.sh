@@ -20,6 +20,10 @@ pkg.install() {
     cd ~/.vim/addons
     git.clone https://github.com/zeekay/vice
     git.clone https://github.com/MarcWeber/vim-addon-manager
+
+    # use vim as git mergetool
+    git config --global --unset-all include.path '~/.vim/gitinclude'
+    git config --global --add include.path '~/.vim/gitinclude'
 }
 
 helper() {
