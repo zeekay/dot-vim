@@ -1,5 +1,5 @@
 [core]
-    editor = git-editor
+    editor = ~/.vim/bin/git-editor
 
 [merge]
     tool = vim
