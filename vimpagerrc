@@ -22,6 +22,7 @@ set laststatus=0
 set nohls
 set nolazyredraw
 set ttyfast
+set ro
 
 inoremap <Esc> <Esc>`^
 map <leader>q :q<cr>
