@@ -94,3 +94,13 @@ let g:python_highlight_all = 1
 let g:gitgutter_enabled = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+
+" Prefer to use my local copies of each go binary
+let g:go_disable_autoinstall = 1
+
+let GOPATH = split($GOPATH, ':')[0]
+for bin in ['gocode', 'goimports', 'godef', 'oracle', 'golint', 'errcheck']
+    if filereadable(GOPATH."/bin/".bin)
+        exe "let g:go_".bin."_bin='".GOPATH."/bin/".bin."'"
+    endif
+endfor
