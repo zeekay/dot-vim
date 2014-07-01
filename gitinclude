@@ -8,6 +8,6 @@
     keepBackup = false
 
 [mergetool "vim"]
-    cmd = vim -u ~/.vimgitrc "+Gvdiff" $MERGED -c '"call vice#git#merge()"'
+    cmd = vim -u ~/.vimgitrc "+Gvdiff" $MERGED
 
 # vim: ft=gitconfig
