@@ -34,7 +34,12 @@ let options = {
 
 if has('mac') && version > 702
     let options.addons += ['github:Shougo/vimproc', 'github:Shougo/vimshell']
-    let options.neocompletion = {'enable_tern': 1}
+    let options.neocompletion = {
+        \ 'enable_clang_complete': 1,
+        \ 'enable_jedi': 1,
+        \ 'enable_necoghc': 1,
+        \ 'enable_tern': 1,
+    \ }
 endif
 
 let &rtp.=','.expand('~/.vim/addons/vice')
