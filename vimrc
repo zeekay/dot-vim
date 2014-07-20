@@ -104,10 +104,22 @@ let g:indent_guides_start_level = 2
 let g:go_disable_autoinstall = 1
 
 if exists('$GOPATH')
-    let GOPATH = split($GOPATH, ':')[0]
-    for bin in ['gocode', 'goimports', 'godef', 'oracle', 'golint', 'errcheck']
-        if filereadable(GOPATH."/bin/".bin)
-            exe "let g:go_".bin."_bin='".GOPATH."/bin/".bin."'"
+    let gotools = {
+        \ 'gocode':    'github.com/nsf/gocode',
+        \ 'goimports': 'github.com/bradfitz/goimports',
+        \ 'godef':     'code.google.com/p/rog-go/exp/cmd/godef',
+        \ 'oracle':    'code.google.com/p/go.tools/oracle',
+        \ 'golint':    'github.com/golang/lint',
+        \ 'errcheck':  'github.com/kisielk/errcheck',
+    \ }
+
+    " Install all deps into ~/go
+    let GOPATH = expand('~/go')
+
+	for [key, value] in items(gotools)
+        if !executable(key)
+            exe '!go get -u '.value
         endif
+        exe "let g:go_".key."_bin='".GOPATH."/bin/".key."'"
     endfor
 endif
