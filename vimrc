@@ -61,7 +61,7 @@ vnoremap K <c-u>
 inoremap <c-u> <c-o>dd
 nnoremap ; :
 
-" Abbreviations
+" Abbreviations.
 cabbrev ack <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Ack' : 'ack')<CR>
 cabbrev shell <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShell' : 'shell')<CR>
 cabbrev shelli <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShellInteractive' : 'shelli')<CR>
@@ -70,56 +70,28 @@ cabbrev sudoedit Sudoedit
 cabbrev sw Sudowrite
 cabbrev se Sudoedit
 
+" Look and feel.
 if has('gui_running')
+    set background = dark
     color base16-mocha
-    set background=dark
 else
     set nolazyredraw
     set ttyfast
 
     if $VIM_LIGHT_BG
-        set background=light
-        colorscheme solarized
+        set background = light
+        color solarized
         hi Normal ctermbg=15
         let g:lightline['colorscheme'] = 'solarized'
     else
-       color hybrid
-       hi Normal ctermbg=235 ctermfg=254
-       let g:indent_guides_auto_colors = 0
-       hi IndentGuidesOdd  ctermbg=236
-       hi IndentGuidesEven ctermbg=236
+        color hybrid
+        hi Normal           ctermbg=235 ctermfg=254
+        hi IndentGuidesOdd  ctermbg=236
+        hi IndentGuidesEven ctermbg=236
+        let g:indent_guides_auto_colors = 0
     endif
 endif
 
-hi link coffeeFunction Function
-hi link coffeeMethod Function
-hi link coffeeObjAssign Statement
-
-let g:python_highlight_all = 1
 let g:gitgutter_enabled = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
-
-" Prefer to use my local copies of each go binary
-let g:go_disable_autoinstall = 1
-
-if exists('$GOPATH')
-    let gotools = {
-        \ 'gocode':    'github.com/nsf/gocode',
-        \ 'goimports': 'github.com/bradfitz/goimports',
-        \ 'godef':     'code.google.com/p/rog-go/exp/cmd/godef',
-        \ 'oracle':    'code.google.com/p/go.tools/oracle',
-        \ 'golint':    'github.com/golang/lint',
-        \ 'errcheck':  'github.com/kisielk/errcheck',
-    \ }
-
-    " Install all deps into ~/go
-    let GOPATH = expand('~/go')
-
-	for [key, value] in items(gotools)
-        if !executable(key)
-            exe '!go get -u '.value
-        endif
-        exe "let g:go_".key."_bin='".GOPATH."/bin/".key."'"
-    endfor
-endif
