@@ -56,34 +56,20 @@ endf
 au VimEnter * call s:JumpToFirstDiff()
 
 if $VIM_LIGHT_BG
-	set background=light
-	colorscheme solarized
-	hi Normal ctermbg=15
+    set background=light
+    color solarized
+    hi Normal ctermbg=15
+    let g:lightline['colorscheme'] = 'solarized'
 else
-	color hybrid
-	hi Normal ctermbg=235
+    color hybrid
+    hi Normal           ctermbg=235 ctermfg=254
+    hi IndentGuidesOdd  ctermbg=236
+    hi IndentGuidesEven ctermbg=236
+    let g:indent_guides_auto_colors = 0
 endif
 
-
-hi link coffeeFunction Function
-hi link coffeeMethod Function
-hi link coffeeObjAssign Statement
-
-let g:python_highlight_all = 1
 let g:gitgutter_enabled = 0
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
-
-" Prefer to use my local copies of each go binary
-let g:go_disable_autoinstall = 1
-
-if exists('$GOPATH')
-    let GOPATH = split($GOPATH, ':')[0]
-    for bin in ['gocode', 'goimports', 'godef', 'oracle', 'golint', 'errcheck']
-        if filereadable(GOPATH."/bin/".bin)
-            exe "let g:go_".bin."_bin='".GOPATH."/bin/".bin."'"
-        endif
-    endfor
-endif
 
 " vim:set ft=vim:
