@@ -72,14 +72,14 @@ cabbrev se Sudoedit
 
 " Look and feel.
 if has('gui_running')
-    set background = dark
+    set background=dark
     color base16-mocha
 else
     set nolazyredraw
     set ttyfast
 
     if $VIM_LIGHT_BG
-        set background = light
+        set background=light
         color solarized
         hi Normal ctermbg=15
         let g:lightline['colorscheme'] = 'solarized'
