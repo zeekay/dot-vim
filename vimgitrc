@@ -11,10 +11,8 @@ call vice#Initialize({
         \ 'github:zeekay/vice-polyglot',
         \ 'github:zeekay/vice-undo',
         \ 'github:mattn/webapi-vim',
-        \ 'github:zeekay/vice-lightline',
     \],
     \ 'commands': {
-        \ 'Gist':               ['github:mattn/gist-vim'],
         \ 'GitGutterToggle':    ['github:airblade/vim-gitgutter'],
         \ 'IndentGuidesToggle': ['github:nathanaelkane/vim-indent-guides'],
         \ 'Sum':                ['github:zeekay/visSum.vim'],
@@ -59,7 +57,6 @@ if $VIM_LIGHT_BG
     set background=light
     color solarized
     hi Normal ctermbg=15
-    let g:lightline['colorscheme'] = 'solarized'
 else
     color hybrid
     hi Normal           ctermbg=235 ctermfg=254
