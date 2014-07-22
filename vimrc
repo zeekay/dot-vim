@@ -71,13 +71,11 @@ cabbrev sw Sudowrite
 cabbrev se Sudoedit
 
 " Look and feel.
+set background=dark
+
 if has('gui_running')
-    set background=dark
     color base16-mocha
 else
-    set nolazyredraw
-    set ttyfast
-
     if $VIM_LIGHT_BG
         set background=light
         color solarized
@@ -90,6 +88,8 @@ else
         hi IndentGuidesEven ctermbg=236
         let g:indent_guides_auto_colors = 0
     endif
+    set nolazyredraw
+    set ttyfast
 endif
 
 let g:gitgutter_enabled = 0
