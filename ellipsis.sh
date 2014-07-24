@@ -5,7 +5,7 @@
 # My vice-based vim configuration.
 
 pkg.link() {
-    files=(gvimrc vimrc vimgitrc vimpagerrc xvimrc)
+    files=(inputrc gvimrc vimrc vimgitrc vimpagerrc xvimrc)
 
     for file in ${files[@]}; do
         fs.link_file $file
