@@ -25,12 +25,12 @@ set ttyfast
 set ro
 
 inoremap <Esc> <Esc>`^
-map <leader>q :q<cr>
+nnoremap <leader>q :call vice#standard_issue#smart_quit()<cr>
+nnoremap Q :call vice#standard_issue#smart_quit()<cr>
 nnoremap J <c-d>
 nnoremap K <c-u>
 vnoremap J <c-d>
 vnoremap K <c-u>
-nnoremap Q ZQ
 inoremap <c-u> <c-o>dd
 map <cr> <cr>
 map <c-d> <c-d>

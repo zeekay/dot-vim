@@ -51,8 +51,8 @@ inoremap <Esc> <Esc>`^
 nnoremap <leader>gg :GitGutterToggle<cr>
 nnoremap <leader>ig :IndentGuidesToggle<cr>
 nnoremap <leader>m :set mouse=a<cr>
-nnoremap <leader>q :q<cr>
-nnoremap Q ZQ
+nnoremap <leader>q :call vice#standard_issue#smart_quit()<cr>
+nnoremap Q :call vice#standard_issue#smart_quit()<cr>
 nnoremap J <c-d>
 nnoremap K <c-u>
 vnoremap J <c-d>
