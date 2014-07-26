@@ -61,11 +61,8 @@ inoremap <c-u> <c-o>dd
 nnoremap ; :
 
 " Abbreviations.
-cabbrev ack <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'Ack' : 'ack')<CR>
 cabbrev shell <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShell' : 'shell')<CR>
 cabbrev shelli <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShellInteractive' : 'shelli')<CR>
-cabbrev sudowrite Sudowrite
-cabbrev sudoedit Sudoedit
 cabbrev sw Sudowrite
 cabbrev se Sudoedit
 
