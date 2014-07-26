@@ -63,8 +63,6 @@ nnoremap ; :
 " Abbreviations.
 cabbrev shell <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShell' : 'shell')<CR>
 cabbrev shelli <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShellInteractive' : 'shelli')<CR>
-cabbrev sw Sudowrite
-cabbrev se Sudoedit
 
 " Look and feel.
 set background=dark
