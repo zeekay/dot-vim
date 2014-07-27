@@ -25,9 +25,6 @@ let options = {
         \ 'IndentGuidesToggle': ['github:nathanaelkane/vim-indent-guides'],
         \ 'Sum':                ['github:zeekay/visSum.vim'],
         \ 'Tabularize':         ['github:godlygeek/tabular'],
-    \ },
-    \ 'standard_issue': {
-        \ 'transparency': 0
     \ }
 \ }
 
@@ -68,7 +65,7 @@ cabbrev shelli <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShellInteractive
 set background=dark
 
 if has('gui_running')
-    color base16-mocha
+    color nefertiti
 else
     if $VIM_LIGHT_BG
         set background=light
