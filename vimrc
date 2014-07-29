@@ -43,7 +43,7 @@ let &rtp.=','.expand('~/.vim/addons/vice')
 call vice#Initialize(options)
 
 " Prevent cursor from moving when leaving insert mode.
-inoremap <Esc> <Esc>`^
+inoremap <silent> <Esc> <Esc>`^
 
 " Mappings.
 nnoremap <leader>gg :GitGutterToggle<cr>
