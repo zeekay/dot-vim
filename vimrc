@@ -46,7 +46,7 @@ inoremap <Esc> <Esc>`^
 
 " Mappings.
 nnoremap <leader>gg :GitGutterToggle<cr>
-nnoremap <leader>ig :IndentGuidesToggle<cr>
+nnoremap <leader>gi :IndentGuidesToggle<cr>
 nnoremap <leader>m :set mouse=a<cr>
 nnoremap <leader>q :call vice#standard_issue#smart_quit()<cr>
 nnoremap Q :call vice#standard_issue#smart_quit()<cr>
