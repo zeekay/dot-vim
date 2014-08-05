@@ -1,3 +1,9 @@
+" Avoid sourcing default vimrc by adding ~/.vim/local/vimrc
+if filereadable(expand('~/.vim/local/vimrc'))
+    so ~/.vim/local/vimrc
+    finish
+endif
+
 set nocompatible
 filetype indent plugin on | syntax on
 
@@ -37,6 +43,11 @@ if has('mac') && version > 702
         \ 'enable_tern':           1,
     \ }
     let options.polyglot = {'enable_ghcmod': 1}
+endif
+
+" Override options passed to vice
+if filereadable(expand('~/.vim/local/options.vim'))
+    so ~/.vim/local/options.vim
 endif
 
 let &rtp.=','.expand('~/.vim/addons/vice')
