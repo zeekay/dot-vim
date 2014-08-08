@@ -1,8 +1,4 @@
-" Avoid sourcing default vimrc by adding ~/.vim/local/vimrc
-if filereadable(expand('~/.vim/local/vimrc'))
-    so ~/.vim/local/vimrc
-    finish
-endif
+if filereadable(expand('~/.vim/local/vimrc')) | so ~/.vim/local/vimrc | finish | endif
 
 set nocompatible
 filetype indent plugin on | syntax on
