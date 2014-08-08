@@ -1,4 +1,6 @@
-if filereadable(expand('~/.vim/local/vimrc')) | so ~/.vim/local/vimrc | finish | endif
+if filereadable(expand('~/.vim/local/vimrc'))
+    so ~/.vim/local/vimrc | finish
+endif
 
 set nocompatible
 filetype indent plugin on | syntax on
@@ -41,7 +43,6 @@ if has('mac') && version > 702
     let options.polyglot = {'enable_ghcmod': 1}
 endif
 
-" Override options passed to vice
 if filereadable(expand('~/.vim/local/options.vim'))
     so ~/.vim/local/options.vim
 endif
