@@ -61,6 +61,7 @@ nnoremap <leader>q :call vice#standard_issue#smart_quit()<cr>
 nnoremap Q :call vice#standard_issue#smart_quit()<cr>
 nnoremap J <c-d>
 nnoremap K <c-u>
+au filetype go nnoremap <buffer> <silent> K <c-u>
 vnoremap J <c-d>
 vnoremap K <c-u>
 inoremap <c-u> <c-o>dd
