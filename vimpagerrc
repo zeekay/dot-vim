@@ -12,6 +12,8 @@ call vice#Initialize({
     \ }
 \ })
 
+let g:no_cecutil_maps = 1
+let g:no_asniesc_menu = 1
 call vice#ForceActivateAddon('github:powerman/vim-plugin-AnsiEsc')
 
 let vimpager_disable_x11 = 1
