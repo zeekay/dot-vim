@@ -12,7 +12,7 @@ call vice#Initialize({
     \ }
 \ })
 
-call vice#ForceActivateAddon('github:zeekay/AnsiEsc.vim')
+call vice#ForceActivateAddon('github:powerman/vim-plugin-AnsiEsc')
 
 let vimpager_disable_x11 = 1
 let vimpager_scrolloff = 0
