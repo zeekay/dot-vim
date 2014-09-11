@@ -59,6 +59,7 @@ map z z
 vmap G G
 map n n
 map N N
+map v v
 nnoremap ; :
 
 func! s:Escape()
