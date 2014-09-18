@@ -12,10 +12,6 @@ call vice#Initialize({
     \ }
 \ })
 
-let g:no_cecutil_maps = 1
-let g:no_asniesc_menu = 1
-call vice#ForceActivateAddon('github:powerman/vim-plugin-AnsiEsc')
-
 let vimpager_disable_x11 = 1
 let vimpager_scrolloff = 0
 let loaded_matchparen = 1
@@ -62,16 +58,6 @@ map N N
 map v v
 nnoremap ; :
 
-func! s:Escape()
-    " Use AnsiEsc for highlighting if ft is not detected.
-    if &ft == ''
-        " Initialize highlighting
-        AnsiEsc
-        " Change default for ansiWhite
-        hi ansiWhite ctermfg=245
-    endif
-endf
-
 func! s:JumpToFirstDiff()
     " Jump to top
     normal gg
@@ -83,13 +69,13 @@ func! s:JumpToFirstDiff()
     endif
 endf
 
-au BufReadPost * call s:Escape()
 au VimEnter * call s:JumpToFirstDiff()
 
 if $VIM_LIGHT_BG
 	set background=light
 	colorscheme solarized
 	hi Normal ctermbg=15
+    hi ansiWhite ctermfg=245
 else
 	color hybrid
 	hi Normal ctermbg=235
