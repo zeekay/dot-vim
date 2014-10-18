@@ -77,7 +77,7 @@ set background=dark
 if has('gui_running')
     color nefertiti
 else
-    if $VIM_LIGHT_BG
+    if $VIM_LIGHT_BG || $ITERM_PROFILE =~ 'light'
         set background=light
         color solarized
         hi Normal ctermbg=15
