@@ -1,5 +1,5 @@
-if filereadable(expand('~/.vim/local/vimrc'))
-    so ~/.vim/local/vimrc | finish
+if filereadable(expand('~/.vim/local/override.vim'))
+    so ~/.vim/local/override.vim | finish
 endif
 
 set nocompatible
@@ -97,3 +97,7 @@ endif
 let g:gitgutter_enabled         = 0
 let g:indent_guides_guide_size  = 1
 let g:indent_guides_start_level = 2
+
+if filereadable(expand('~/.vim/local/after.vim'))
+    so ~/.vim/local/after.vim
+endif
