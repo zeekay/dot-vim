@@ -1,5 +1,5 @@
-if filereadable(expand('~/.vim/local/override.vim'))
-    so ~/.vim/local/override.vim | finish
+if filereadable(expand('~/.vim/local/vimrc'))
+    so ~/.vim/local/vimrc | finish
 endif
 
 set nocompatible
@@ -44,8 +44,8 @@ if has('mac') && version > 702
     let options.polyglot = {'enable_ghcmod': 1}
 endif
 
-if filereadable(expand('~/.vim/local/options.vim'))
-    so ~/.vim/local/options.vim
+if filereadable(expand('~/.vim/local/before.vim'))
+    so ~/.vim/local/before.vim
 endif
 
 let &rtp.=','.expand('~/.vim/addons/vice')
