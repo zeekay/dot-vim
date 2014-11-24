@@ -53,16 +53,20 @@ endf
 
 au VimEnter * call s:JumpToFirstDiff()
 
-if $VIM_LIGHT_BG
-    set background=light
-    color solarized
-    hi Normal ctermbg=15
+if has('gui_running')
+    color nefertiti
 else
-    color hybrid
-    hi Normal           ctermbg=235 ctermfg=254
-    hi IndentGuidesOdd  ctermbg=236
-    hi IndentGuidesEven ctermbg=236
-    let g:indent_guides_auto_colors = 0
+    if $VIM_LIGHT_BG
+        set background=light
+        color solarized
+        hi Normal ctermbg=15
+    else
+        color hybrid
+        hi Normal           ctermbg=235 ctermfg=254
+        hi IndentGuidesOdd  ctermbg=236
+        hi IndentGuidesEven ctermbg=236
+        let g:indent_guides_auto_colors = 0
+    endif
 endif
 
 let g:gitgutter_enabled = 0
