@@ -1,6 +1,4 @@
-if filereadable(expand('~/.vim/local/vimrc'))
-    so ~/.vim/local/vimrc | finish
-endif
+if filereadable(expand('~/.vim/local/vimrc')) | so ~/.vim/local/vimrc | finish | endif
 
 set nocompatible
 filetype indent plugin on | syntax on
@@ -44,9 +42,7 @@ if has('mac') && version > 702
     let options.polyglot = {'enable_ghcmod': 1}
 endif
 
-if filereadable(expand('~/.vim/local/before.vim'))
-    so ~/.vim/local/before.vim
-endif
+if filereadable(expand('~/.vim/local/before.vim')) | so ~/.vim/local/before.vim | endif
 
 let &rtp.=','.expand('~/.vim/addons/vice')
 call vice#Initialize(options)
@@ -98,6 +94,4 @@ let g:gitgutter_enabled         = 0
 let g:indent_guides_guide_size  = 1
 let g:indent_guides_start_level = 2
 
-if filereadable(expand('~/.vim/local/after.vim'))
-    so ~/.vim/local/after.vim
-endif
+if filereadable(expand('~/.vim/local/after.vim')) | so ~/.vim/local/after.vim | endif
