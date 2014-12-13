@@ -73,6 +73,10 @@ set background=dark
 
 if has('gui_running')
     color nefertiti
+    " Fix $PATH when opened from elsewhere.
+    if $PATH == '/usr/bin:/bin:/usr/sbin:/sbin'
+        let $PATH=system("zsh -ic 'echo $PATH'")
+    endif
 else
     if $VIM_LIGHT_BG || $ITERM_PROFILE =~ 'light'
         set background=light
