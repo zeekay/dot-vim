@@ -12,15 +12,22 @@ call vice#Initialize({
     \ }
 \ })
 
+let loaded_matchparen = 1
+let g:no_asniesc_menu = 1
+let g:no_cecutil_maps = 1
+let vimpager_disable_ansiesc = 0
 let vimpager_disable_x11 = 1
 let vimpager_scrolloff = 0
-let loaded_matchparen = 1
 
+set buftype=nofile modifiable
+set expandtab
 set laststatus=0
 set nohls
 set nolazyredraw
-set ttyfast
 set ro
+set softtabstop=8
+set tabstop=8
+set ttyfast
 
 inoremap <Esc> <Esc>`^
 nnoremap <leader>q :call vice#standard_issue#smart_quit()<cr>
@@ -69,17 +76,29 @@ func! s:JumpToFirstDiff()
     endif
 endf
 
-au VimEnter * call s:JumpToFirstDiff()
+func! s:SetupColors()
+    if $VIM_LIGHT_BG
+        set background=light
+        colorscheme solarized
+        hi Normal ctermbg=15
+        hi ansiWhite ctermfg=246
+        hi ansiYellow ctermfg=136
+    else
+        color hybrid
+        hi Normal ctermbg=235
+        hi ansiWhite ctermfg=245
+    endif
+endf
 
-if $VIM_LIGHT_BG
-	set background=light
-	colorscheme solarized
-	hi Normal ctermbg=15
-    hi ansiWhite ctermfg=246
-    hi ansiYellow ctermfg=136
-else
-	color hybrid
-	hi Normal ctermbg=235
-endif
+func! s:SetupVimpager()
+    " Wipe out vimpager's autocommands and manually call AnsiEsc so we can
+    " override things.
+    au! VimEnter *
+    silent! AnsiEsc
+    call s:SetupColors()
+    call s:JumpToFirstDiff()
+endf
+
+au VimEnter * call s:SetupVimpager()
 
 " vim:set ft=vim:
