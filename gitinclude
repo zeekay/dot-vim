@@ -10,4 +10,7 @@
 [mergetool "vim"]
     cmd = vim -u ~/.vimgitrc -f -c "Gvdiff" $MERGED
 
+[color]
+	diff = never
+
 # vim: ft=gitconfig
