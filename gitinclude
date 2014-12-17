@@ -12,5 +12,6 @@
 
 [color]
 	diff = never
+	patch = never
 
 # vim: ft=gitconfig
