@@ -22,6 +22,8 @@ let options = {
         \ 'github:zeekay/vice-lightline',
         \ 'github:terryma/vim-multiple-cursors',
         \ 'github:tpope/vim-vinegar',
+        \ 'github:junegunn/vim-pseudocl',
+        \ 'github:junegunn/vim-oblique',
     \ ],
     \ 'commands': {
         \ 'Beautify':           ['github:zeekay/vim-beautify'],
@@ -86,6 +88,8 @@ else
         color solarized
         hi Normal ctermbg=15
         let g:lightline['colorscheme'] = 'solarized'
+        hi Search ctermfg=254 ctermbg=244
+        hi IncSearch ctermfg=250 ctermbg=238
     else
         color hybrid
         hi Normal           ctermbg=235 ctermfg=254
