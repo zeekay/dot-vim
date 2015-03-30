@@ -10,6 +10,7 @@ let options = {
         \ 'github:zeekay/vice-ctrlp',
         \ 'github:zeekay/vice-delimitmate',
         \ 'github:zeekay/vice-git',
+        \ 'github:zeekay/vice-markdown',
         \ 'github:zeekay/vice-polyglot',
         \ 'github:zeekay/vice-neocompletion',
         \ 'github:zeekay/vice-standard-issue',
