@@ -5,7 +5,6 @@ filetype indent plugin on | syntax on
 
 let options = {
     \ 'addons': [
-        \ 'github:zeekay/vim-beautify',
         \ 'github:zeekay/vice-colorful',
         \ 'github:zeekay/vice-ctrlp',
         \ 'github:zeekay/vice-delimitmate',
@@ -20,10 +19,7 @@ let options = {
         \ 'github:zeekay/vice-nerdtree',
         \ 'github:zeekay/vice-startify',
         \ 'github:zeekay/vice-lightline',
-        \ 'github:terryma/vim-multiple-cursors',
         \ 'github:tpope/vim-vinegar',
-        \ 'github:junegunn/vim-pseudocl',
-        \ 'github:junegunn/vim-oblique',
     \ ],
     \ 'commands': {
         \ 'Beautify':           ['github:zeekay/vim-beautify'],
