@@ -102,3 +102,4 @@ let g:indent_guides_guide_size  = 1
 let g:indent_guides_start_level = 2
 
 if filereadable(expand('~/.vim/local/after.vim')) | so ~/.vim/local/after.vim | endif
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
