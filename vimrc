@@ -24,6 +24,7 @@ let options = {
     \ 'commands': {
         \ 'Beautify':           ['github:zeekay/vim-beautify'],
         \ 'EasyAlign':          ['github:junegunn/vim-easy-align'],
+        \ 'FlappyVird':         ['github:mattn/flappyvird-vim'],
         \ 'GitGutterToggle':    ['github:airblade/vim-gitgutter'],
         \ 'IndentGuidesToggle': ['github:nathanaelkane/vim-indent-guides'],
         \ 'Sum':                ['github:zeekay/visSum.vim'],
