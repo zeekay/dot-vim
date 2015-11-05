@@ -13,6 +13,8 @@ pkg.link() {
 
     # link module into ~/.vim
     fs.link_file $PKG_PATH
+    mkdir -p ~/.config
+    fs.link_file $PKG_PATH ~/.config/nvim
 }
 
 pkg.install() {
