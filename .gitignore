@@ -2,3 +2,5 @@ addons
 tmp
 .netrwhist
 local
+after.vim
+before.vim
