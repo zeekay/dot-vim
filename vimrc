@@ -47,4 +47,58 @@ if filereadable(expand('~/.vim/before.vim')) | so ~/.vim/before.vim | endif
 let &rtp.=','.expand('~/.vim/addons/vice')
 call vice#Initialize(options)
 
+" Prevent cursor from moving when leaving insert mode.
+inoremap <silent> <Esc> <Esc>`^
+
+" Mappings.
+nnoremap <leader>gg :GitGutterToggle<cr>
+nnoremap <leader>gi :IndentGuidesToggle<cr>
+nnoremap <leader>m :set mouse=a<cr>
+nnoremap <leader>q :call vice#standard_issue#smart_quit()<cr>
+nnoremap Q :call vice#standard_issue#smart_quit()<cr>
+nnoremap J <c-d>
+nnoremap K <c-u>
+vnoremap J <c-d>
+vnoremap K <c-u>
+inoremap <c-u> <c-o>dd
+nnoremap ; :
+au filetype go nnoremap <buffer> <silent> K <c-u>
+
+" Abbreviations.
+cabbrev shell  <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShell' : 'shell')<CR>
+cabbrev shelli <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'VimShellInteractive' : 'shelli')<CR>
+
+" Look and feel.
+set background=dark
+
+if has('gui_running')
+    color nefertiti
+    " Fix $PATH when opened from elsewhere.
+    if $PATH == '/usr/bin:/bin:/usr/sbin:/sbin'
+        let $PATH=system("zsh -ic 'echo $PATH'")
+    endif
+else
+    if $VIM_LIGHT_BG || $ITERM_PROFILE =~ 'light'
+        set background=light
+        color solarized
+        hi Normal ctermbg=15
+        let g:lightline['colorscheme'] = 'solarized'
+        hi Search ctermfg=254 ctermbg=244
+        hi IncSearch ctermfg=250 ctermbg=238
+    else
+        color hybrid
+        hi Normal           ctermbg=235 ctermfg=254
+        hi IndentGuidesOdd  ctermbg=236
+        hi IndentGuidesEven ctermbg=236
+        let g:indent_guides_auto_colors = 0
+    endif
+    set nolazyredraw
+    set ttyfast
+endif
+
+let g:gitgutter_enabled         = 0
+let g:indent_guides_guide_size  = 1
+let g:indent_guides_start_level = 2
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
 if filereadable(expand('~/.vim/after.vim')) | so ~/.vim/after.vim | endif
