@@ -13,8 +13,15 @@ pkg.link() {
 
     # link module into ~/.vim
     fs.link_file $PKG_PATH
-    mkdir -p ~/.config
-    fs.link_file $PKG_PATH ~/.config/nvim
+    mkdir -p ~/.config/nvim
+    fs.link_file $PKG_PATH/nvimrc ~/.config/nvim/init.vim
+}
+
+update_deps() {
+    cd ~/.vim/addons/vimproc && make
+    if utils.cmd_exists npm; then
+        cd ~/.vim/addons/tern_for_vim && npm update
+    fi
 }
 
 pkg.install() {
@@ -22,6 +29,10 @@ pkg.install() {
     cd ~/.vim/addons
     git.clone https://github.com/zeekay/vice
     git.clone https://github.com/MarcWeber/vim-addon-manager
+    git.clone https://github.com/ternjs/tern_for_vim
+    git.clone https://github.com/Shougo/vimproc
+
+    update_deps
 
     # use vim as git mergetool
     git.add_include '~/.vim/gitinclude'
@@ -43,6 +54,7 @@ helper() {
 
 pkg.pull() {
     helper git.pull
+    update_deps
 }
 
 pkg.status() {
