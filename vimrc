@@ -9,7 +9,7 @@ let options = {
         \ 'github:zeekay/vice-git',
         \ 'github:zeekay/vice-markdown',
         \ 'github:zeekay/vice-polyglot',
-        \ 'github:zeekay/vice-neocompletion',
+        \ 'github:zeekay/vice-complete',
         \ 'github:zeekay/vice-standard-issue',
         \ 'github:zeekay/vice-syntastic',
         \ 'github:zeekay/vice-tagbar',
@@ -32,7 +32,7 @@ let options = {
 
 if has('mac') && version > 702
     let options.addons += ['github:Shougo/vimproc', 'github:Shougo/vimshell']
-    let options.neocompletion = {
+    let options.complete = {
         \ 'enable_clang_complete': 1,
         \ 'enable_jedi':           1,
         \ 'enable_necoghc':        1,
