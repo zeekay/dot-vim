@@ -11,7 +11,7 @@ let options = {
         \ 'github:zeekay/vice-polyglot',
         \ 'github:zeekay/vice-complete',
         \ 'github:zeekay/vice-standard-issue',
-        \ 'github:zeekay/vice-syntastic',
+        \ 'github:zeekay/vice-make',
         \ 'github:zeekay/vice-tagbar',
         \ 'github:zeekay/vice-undo',
         \ 'github:zeekay/vice-nerdtree',
