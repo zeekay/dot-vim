@@ -33,18 +33,6 @@ set ttyfast
 set nolazyredraw
 set laststatus=0
 
-if has('mac') && version > 702
-    let options.addons += ['github:Shougo/vimproc', 'github:Shougo/vimshell']
-    let options.complete = {
-        \ 'enable_clang_complete': 1,
-        \ 'enable_jedi':           1,
-        \ 'enable_necoghc':        1,
-        \ 'enable_tern':           1,
-        \ 'enable_racer':          1,
-    \ }
-    let options.polyglot = {'enable_ghcmod': 1}
-endif
-
 " Prevent cursor from moving when leavng insert mode
 inoremap <Esc> <Esc>`^
 
