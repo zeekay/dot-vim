@@ -26,7 +26,7 @@ update_deps() {
 
 pkg.install() {
     # install dependencies
-    cd ~/.vim/addons
+    mkdir -p ~/.vim/addons && cd ~/.vim/addons
     git.clone https://github.com/zeekay/vice
     git.clone https://github.com/MarcWeber/vim-addon-manager
     git.clone https://github.com/ternjs/tern_for_vim
