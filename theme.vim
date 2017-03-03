@@ -17,12 +17,12 @@ else
         hi IncSearch ctermfg=250 ctermbg=238
     else
         color hybrid
-        hi Normal  ctermbg=2 ctermfg=251
+        hi Normal  ctermbg=none ctermfg=251
         hi Comment ctermfg=darkgray
         hi Function cterm=bold ctermfg=gray
         hi Identifier cterm=none
         hi Structure ctermfg=36 cterm=bold
-        hi coffeeObjAssign ctermfg=242
+        hi coffeeObjAssign ctermfg=lightgreen cterm=bold
         hi Statement ctermfg=36
         hi String ctermfg=248
         hi diffAdded ctermfg=36
