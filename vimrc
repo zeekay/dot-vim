@@ -87,7 +87,8 @@ else
         hi IncSearch ctermfg=250 ctermbg=238
     else
         color hybrid
-        hi Normal           ctermbg=2 ctermfg=251
+        hi Normal  ctermbg=2 ctermfg=251
+        hi Comment ctermfg=darkgray
         " hi IndentGuidesOdd  ctermbg=236
         " hi IndentGuidesEven ctermbg=236
         " let g:indent_guides_auto_colors = 0
