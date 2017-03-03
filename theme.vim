@@ -17,18 +17,21 @@ else
         hi IncSearch ctermfg=250 ctermbg=238
     else
         color hybrid
-        hi Normal  ctermbg=none ctermfg=251
         hi Comment ctermfg=darkgray
         hi Constant ctermfg=183
         hi Function cterm=bold ctermfg=gray
         hi Identifier cterm=none
-        hi Structure ctermfg=36 cterm=bold
-        hi Type ctermfg=305
-        hi coffeeObjAssign ctermfg=lightgreen cterm=bold
+        hi Normal  ctermbg=none ctermfg=251
         hi Statement ctermfg=36
         hi String ctermfg=248
+        hi Structure ctermfg=36 cterm=bold
+        hi Type ctermfg=305
+
+        hi coffeeObjAssign ctermfg=lightgreen cterm=bold
+
         hi diffAdded ctermfg=36
         hi diffRemoved ctermfg=darkgray
+
         " hi IndentGuidesOdd  ctermbg=236
         " hi IndentGuidesEven ctermbg=236
         " let g:indent_guides_auto_colors = 0
