@@ -18,6 +18,7 @@ let options = {
         \ 'github:zeekay/vice-startify',
         \ 'github:zeekay/vice-lightline',
         \ 'github:tpope/vim-vinegar',
+        \ 'github:godlygeek/tabular',
     \ ],
     \ 'commands': {
         \ 'Beautify':           ['github:zeekay/vim-beautify'],
@@ -26,7 +27,6 @@ let options = {
         \ 'GitGutterToggle':    ['github:airblade/vim-gitgutter'],
         \ 'IndentGuidesToggle': ['github:nathanaelkane/vim-indent-guides'],
         \ 'Sum':                ['github:zeekay/visSum.vim'],
-        \ 'Tabularize':         ['github:godlygeek/tabular'],
     \ }
 \ }
 
