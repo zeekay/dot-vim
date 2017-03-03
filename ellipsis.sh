@@ -4,6 +4,28 @@
 #
 # My vice-based vim configuration.
 
+# Forward ellipsis commands to vim addons
+helper() {
+    $1
+
+    # run command for each addon
+    for addon in ~/.vim/addons/*; do
+        # git status/push only repos which are ours
+        if [ $1 = "git.pull" ] || [ "$(cat $addon/.git/config | grep url | grep $ELLIPSIS_USER)" ]; then
+            cd $addon
+            $1 vim/$(basename $addon)
+        fi
+    done
+}
+
+# Update various deps
+update_deps() {
+    cd ~/.vim/addons/vimproc && make
+    if utils.cmd_exists npm; then
+        cd ~/.vim/addons/tern_for_vim && npm update
+    fi
+}
+
 pkg.link() {
     files=(inputrc gvimrc vimrc vimgitrc vimpagerrc xvimrc)
 
@@ -15,13 +37,6 @@ pkg.link() {
     fs.link_file $PKG_PATH
     mkdir -p ~/.config/nvim
     fs.link_file $PKG_PATH/nvimrc ~/.config/nvim/init.vim
-}
-
-update_deps() {
-    cd ~/.vim/addons/vimproc && make
-    if utils.cmd_exists npm; then
-        cd ~/.vim/addons/tern_for_vim && npm update
-    fi
 }
 
 pkg.install() {
@@ -36,20 +51,6 @@ pkg.install() {
 
     # use vim as git mergetool
     git.add_include '~/.vim/gitinclude'
-}
-
-helper() {
-    # run command for ourselves
-    $1
-
-    # run command for each addon
-    for addon in ~/.vim/addons/*; do
-        # git status/push only repos which are ours
-        if [ $1 = "git.pull" ] || [ "$(cat $addon/.git/config | grep url | grep $ELLIPSIS_USER)" ]; then
-            cd $addon
-            $1 vim/$(basename $addon)
-        fi
-    done
 }
 
 pkg.pull() {
