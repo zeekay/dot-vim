@@ -1,6 +1,24 @@
 set nocompatible
 
+let loaded_matchparen = 1
+
+let g:no_ansiesc_menu = 1
+let g:no_cecutil_maps = 1
+let g:no_drchip_menu  = 1
+let g:no_plugin_maps  = 1
+
+let g:vimpager = {
+    \ 'ansiesc': 1,
+    \ 'X11':     0,
+\ }
+
+let g:less = {
+    \ 'scrolloff': 5,
+    \ 'enabled':   0,
+\ }
+
 let &rtp.=','.expand('~/.vim/addons/vice')
+
 call vice#Initialize({
     \ 'addons': [
         \ 'github:zeekay/vice-colorful',
@@ -11,13 +29,6 @@ call vice#Initialize({
         \ 'Gist': ['github:mattn/gist-vim'],
     \ }
 \ })
-
-let loaded_matchparen = 1
-let g:no_asniesc_menu = 1
-let g:no_cecutil_maps = 1
-let vimpager_disable_ansiesc = 0
-let vimpager_disable_x11 = 1
-let vimpager_scrolloff = 0
 
 set buftype=nofile modifiable
 set expandtab
@@ -30,6 +41,7 @@ set tabstop=8
 inoremap <Esc> <Esc>`^
 nnoremap <leader>q :call vice#standard_issue#smart_quit()<cr>
 nnoremap Q :call vice#standard_issue#smart_quit()<cr>
+nnoremap q :call vice#standard_issue#smart_quit()<cr>
 nnoremap J <c-d>
 nnoremap K <c-u>
 vnoremap J <c-d>
@@ -74,15 +86,8 @@ func! s:JumpToFirstDiff()
     endif
 endf
 
-func! s:Init()
-    " Wipe out vimpager's autocommands and manually call AnsiEsc so we can
-    " override things.
-    au! VimEnter *
-    silent! AnsiEsc
-    if filereadable(expand('~/.vim/theme.vim')) | so ~/.vim/theme.vim | endif
-    call s:JumpToFirstDiff()
-endf
+au VimEnter * call s:JumpToFirstDiff()
 
-au VimEnter * call s:Init()
+if filereadable(expand('~/.vim/theme.vim')) | so ~/.vim/theme.vim | endif
 
 " vim:set ft=vim:
