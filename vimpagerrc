@@ -93,7 +93,7 @@ func! s:AnsiColors()
     hi ansiBlackFg ctermfg=244
     hi ansiRedFg ctermfg=244
 
-    hi ansiNone ctermfg=249
+    hi ansiNone ctermfg=250
     hi ansiWhiteFg ctermfg=251
 endf
 
