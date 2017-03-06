@@ -22,6 +22,7 @@ let &rtp.=','.expand('~/.vim/addons/vice')
 call vice#Initialize({
     \ 'addons': [
         \ 'github:zeekay/vice-colorful',
+        \ 'github:zeekay/vice-git',
         \ 'github:zeekay/vice-standard-issue',
         \ 'github:mattn/webapi-vim',
     \ ],
@@ -29,6 +30,8 @@ call vice#Initialize({
         \ 'Gist': ['github:mattn/gist-vim'],
     \ }
 \ })
+
+if filereadable(expand('~/.vim/theme.vim')) | so ~/.vim/theme.vim | endif
 
 set buftype=nofile modifiable
 set expandtab
@@ -86,8 +89,13 @@ func! s:JumpToFirstDiff()
     endif
 endf
 
-au VimEnter * call s:JumpToFirstDiff()
+func! s:AnsiColors()
+    hi ansiRedFg ctermfg=244
+    hi ansiNone ctermfg=251
+    hi ansiWhiteFg ctermfg=252
+endf
 
-if filereadable(expand('~/.vim/theme.vim')) | so ~/.vim/theme.vim | endif
+au VimEnter * call s:JumpToFirstDiff()
+au BufEnter * call s:AnsiColors()
 
 " vim:set ft=vim:
