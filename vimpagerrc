@@ -31,9 +31,6 @@ call vice#Initialize({
     \ }
 \ })
 
-call vice#ForceActivateAddon('github:tpope/vim-git')
-call vice#ForceActivateAddon('github:tpope/vim-fugitive')
-
 if filereadable(expand('~/.vim/theme.vim')) | so ~/.vim/theme.vim | endif
 
 set buftype=nofile modifiable
