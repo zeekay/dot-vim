@@ -31,6 +31,9 @@ call vice#Initialize({
     \ }
 \ })
 
+call vice#ForceActivateAddon('github:tpope/vim-git')
+call vice#ForceActivateAddon('github:tpope/vim-fugitive')
+
 if filereadable(expand('~/.vim/theme.vim')) | so ~/.vim/theme.vim | endif
 
 set buftype=nofile modifiable
@@ -94,7 +97,7 @@ func! s:AnsiColors()
     hi ansiRedFg ctermfg=244
 
     hi ansiNone ctermfg=250
-    hi ansiWhiteFg ctermfg=251
+    hi ansiWhiteFg ctermfg=252
 endf
 
 au VimEnter * call s:JumpToFirstDiff()
