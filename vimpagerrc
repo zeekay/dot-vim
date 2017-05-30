@@ -40,6 +40,7 @@ set nohls
 set ro
 set softtabstop=8
 set tabstop=8
+set mouse-=a
 
 inoremap <Esc> <Esc>`^
 nnoremap <leader>q :call vice#standard_issue#smart_quit()<cr>
