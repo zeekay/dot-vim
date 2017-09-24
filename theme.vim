@@ -31,6 +31,7 @@ else
         hi String ctermfg=248
 
         " Remove hardcoded ctermbg so we can have a transparent bg
+        hi NonText ctermbg=none
         hi Comment ctermbg=none
         hi Constant ctermbg=none
         hi Delimiter ctermbg=none

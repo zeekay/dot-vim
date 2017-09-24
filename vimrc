@@ -22,6 +22,7 @@ let options = {
     \ ],
     \ 'commands': {
         \ 'Beautify':           ['github:zeekay/vim-beautify'],
+        \ 'Neoformat':          ['github:sbdchd/neoformat'],
         \ 'EasyAlign':          ['github:junegunn/vim-easy-align'],
         \ 'FlappyVird':         ['github:mattn/flappyvird-vim'],
         \ 'GitGutterToggle':    ['github:airblade/vim-gitgutter'],
@@ -35,7 +36,7 @@ if has('mac') && version > 702
         \ 'enable_clang_complete': 1,
         \ 'enable_jedi':           1,
         \ 'enable_necoghc':        1,
-        \ 'enable_tern':           1,
+        \ 'enable_tern':           0,
         \ 'enable_racer':          1,
     \ }
     let options.polyglot = {'enable_ghcmod': 1}
