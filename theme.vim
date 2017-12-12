@@ -52,6 +52,7 @@ else
         hi DiffAdd ctermbg=none
         hi DiffDelete ctermbg=234 ctermfg=235
         hi IncSearch ctermfg=250 ctermbg=238 cterm=none
+        hi StartifyFooter ctermfg=240 ctermbg=none
 
         " hi Structure ctermfg=36 cterm=bold
         " hi Type ctermfg=305
