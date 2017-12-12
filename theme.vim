@@ -47,6 +47,12 @@ else
         hi Structure ctermbg=none
         hi Type ctermbg=none
 
+        hi DiffText cterm=none ctermbg=none
+        hi DiffChange ctermbg=none
+        hi DiffAdd ctermbg=none
+        hi DiffDelete ctermbg=234 ctermfg=235
+        hi IncSearch ctermfg=250 ctermbg=238 cterm=none
+
         " hi Structure ctermfg=36 cterm=bold
         " hi Type ctermfg=305
 
