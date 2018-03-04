@@ -36,8 +36,9 @@ if has('mac') && version > 702
         \ 'enable_clang_complete': 1,
         \ 'enable_jedi':           1,
         \ 'enable_necoghc':        1,
-        \ 'enable_tern':           0,
+        \ 'enable_tern':           1,
         \ 'enable_racer':          1,
+        \ 'enable_typescript':     1,
     \ }
     let options.polyglot = {'enable_ghcmod': 1}
 endif
