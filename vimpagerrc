@@ -8,8 +8,9 @@ let g:no_drchip_menu  = 1
 let g:no_plugin_maps  = 1
 
 let g:vimpager = {
-    \ 'ansiesc': 1,
-    \ 'X11':     0,
+    \ 'X11':         0,
+    \ 'ansiesc':     1,
+    \ 'passthrough': 0,
 \ }
 
 let g:less = {
