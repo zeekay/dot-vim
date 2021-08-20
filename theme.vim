@@ -5,7 +5,7 @@ endif
 if $VIM_LIGHT_BG || $ITERM_PROFILE =~ 'light'
     set background=light
     color solarized
-    hi Normal ctermbg=15
+    hi Normal ctermbg=14
     let g:lightline['colorscheme'] = 'solarized'
     hi Search ctermfg=254 ctermbg=244
     hi IncSearch ctermfg=250 ctermbg=238
@@ -19,7 +19,7 @@ else
     " hi Normal  ctermbg=none ctermfg=251
     hi Statement ctermfg=36
     hi Title ctermfg=36
-    hi String ctermfg=248
+    hi String ctermfg=249
 
     " Remove hardcoded ctermbg so we can have a transparent bg
     hi NonText ctermbg=none
