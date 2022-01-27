@@ -96,6 +96,7 @@ func! s:AnsiColors()
     hi ansiRedFg ctermfg=244
     hi ansiNone ctermfg=250
     hi ansiWhiteFg ctermfg=252
+    AnsiEsc
 endf
 
 au VimEnter * call s:JumpToFirstDiff()
