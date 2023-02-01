@@ -65,6 +65,7 @@ nnoremap ; :
 au filetype go nnoremap <buffer> <silent> K <c-u>
 
 func! s:JumpToFirstDiff()
+    wincmd l
     if &ft == 'diff'
         normal gg]]
         echo
