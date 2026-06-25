@@ -19,10 +19,16 @@ helper() {
 }
 
 # Update various deps
+#
+# Uses $PKG_PATH/addons (the real checkout) rather than ~/.vim/addons: during
+# pkg.install the ~/.vim symlink doesn't exist yet (pkg.link runs afterwards),
+# and post-link ~/.vim/addons resolves to the same path anyway.
 update_deps() {
-    cd ~/.vim/addons/vimproc && make
+    if utils.cmd_exists make; then
+        cd $PKG_PATH/addons/vimproc && make
+    fi
     if utils.cmd_exists npm; then
-        cd ~/.vim/addons/tern_for_vim && npm update
+        cd $PKG_PATH/addons/tern_for_vim && npm install
     fi
 }
 

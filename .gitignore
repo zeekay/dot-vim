@@ -1,5 +1,6 @@
 addons
 tmp
+tmpn
 .netrwhist
 local
 after.vim
