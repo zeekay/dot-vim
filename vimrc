@@ -17,6 +17,7 @@ let options = {
         \ 'github:zeekay/vice-nerdtree',
         \ 'github:zeekay/vice-startify',
         \ 'github:zeekay/vice-lightline',
+        \ 'github:zeekay/ai.vim',
         \ 'github:tpope/vim-vinegar',
         \ 'github:godlygeek/tabular',
     \ ],
